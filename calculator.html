@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>calculator</title>
+    <link rel="stylesheet" href="calculstyle.css" />
+  </head>
+  <script>
+    var str = "";
+
+    function cal(val) {
+      if (val !== "=") {
+        str += val;
+        document.getElementById("data").value = str;
+      } else {
+        var c = "answer = " + eval(str);
+        document.getElementById("ans").innerHTML = c;
+        str = "";
+      }
+    }
+
+    function clearString(inputStr) {
+      str = inputStr.substring(0, inputStr.length - 1);
+      console.log(str);
+      document.getElementById("data").value = str;
+    }
+  </script>
+  <body>
+    <h1>CALCULATOR</h1>
+    <div class="keys">
+      <input type="text" id="data" value="" /><br />
+      <button onclick="cal(0)">0</button>
+      <button onclick="cal(1)">1</button>
+      <button onclick="cal(2)">2</button>
+      <button onclick="cal(3)">3</button>
+      <button onclick="cal(4)">4</button>
+      <button onclick="cal(5)">5</button>
+      <button onclick="cal(6)">6</button>
+      <button onclick="cal(7)">7</button>
+      <button onclick="cal(8)">8</button>
+      <button onclick="cal(9)">9</button>
+      <button onclick="cal('*')">*</button>
+      <button onclick="cal('+')">+</button>
+      <button onclick="cal('-')">-</button>
+      <button onclick="cal('/')">/</button>
+      <button onclick="cal('=')">=</button>
+      <button onclick="clearString(str)">Clear</button>
+      <p id="ans">ANSWER:</p>
+    </div>
+  </body>
+</html>
